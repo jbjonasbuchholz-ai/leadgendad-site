@@ -192,3 +192,11 @@ footer{border-top:1px solid var(--line);padding-block:40px;color:var(--muted);fo
 .disclose{margin-top:20px;font-size:13px;max-width:80ch}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* HighLevel form embeds */
+.signup{background:#1E3A55;color:#F2F4F6}
+.signup p{color:#A9BCCD}
+.embed{margin-top:4px}
+.embed iframe{display:block;min-height:150px}
+.contact-embed{background:#FFFFFF;border:1px solid var(--line);border-radius:6px;padding:12px}
+.contact-embed iframe{display:block;min-height:560px}

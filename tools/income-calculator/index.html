@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Income Goal Calculator for Real Estate Agents | Lead Gen Dad</title>
+<meta name="description" content="Enter your monthly income goal and see how many closings, appointments, conversations, and leads you need. Free, no signup.">
+<meta property="og:title" content="Income Goal Calculator for Real Estate Agents | Lead Gen Dad">
+<meta property="og:description" content="Enter your monthly income goal and see how many closings, appointments, conversations, and leads you need. Free, no signup.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23F2650F'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='900' font-size='14' text-anchor='middle' fill='white'%3ELGD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/" aria-label="Lead Gen Dad home"><span class="logo-mark">LGD</span><span class="logo-text">Lead Gen Dad</span></a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul class="menu" id="menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/playbooks/">Playbooks</a></li>
+      <li><a href="/tools/" aria-current="page">Tools</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="hero"><div class="wrap page-head">
+    <a class="crumb" href="/tools/">← All tools</a>
+    <div class="label" style="margin-top:22px">Free tool · Income goal calculator</div>
+    <h1>Work backwards from your income goal</h1>
+    <p style="color:var(--hero-muted);max-width:60ch;font-size:18px">Enter what you want to take home each month. See how many closings, appointments, conversations, and leads it takes to get there.</p>
+  </div></div>
+
+  <section>
+    <div class="wrap calc">
+      <form class="calc-inputs" id="calc-form" novalidate>
+        <fieldset>
+          <legend class="label">1 · Your goal</legend>
+          <div class="field big">
+            <label for="goal">Monthly take-home goal</label>
+            <div class="affix"><span>$</span><input id="goal" type="number" inputmode="decimal" min="0" step="500" value="25000"></div>
+          </div>
+          <div class="field">
+            <label for="expenses">Business expenses</label>
+            <div class="affix suffix"><input id="expenses" type="number" inputmode="decimal" min="0" max="90" step="1" value="0"><span>%</span></div>
+            <small>Marketing, MLS dues, software, and other costs, as a share of your income. Leave at 0 to ignore.</small>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="label">2 · Your deals</legend>
+          <div class="field">
+            <label for="price">Average sale price</label>
+            <div class="affix"><span>$</span><input id="price" type="number" inputmode="decimal" min="0" step="5000" value="417500"></div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="commission">Your commission</label>
+              <div class="affix suffix"><input id="commission" type="number" inputmode="decimal" min="0" max="10" step="0.25" value="3"><span>%</span></div>
+            </div>
+            <div class="field">
+              <label for="split">Your split</label>
+              <div class="affix suffix"><input id="split" type="number" inputmode="decimal" min="0" max="100" step="5" value="80"><span>%</span></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="sellers">Deals from sellers</label>
+            <div class="slider"><input id="sellers" type="range" min="0" max="100" step="5" value="50"><output id="sellers-out" for="sellers">50% sellers · 50% buyers</output></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="label">3 · Your funnel</legend>
+          <div class="presets" role="group" aria-label="Lead source starting points">
+            <button type="button" class="chip" data-preset="cold" aria-pressed="true">Online leads</button>
+            <button type="button" class="chip" data-preset="warm" aria-pressed="false">Warm leads</button>
+            <button type="button" class="chip" data-preset="referral" aria-pressed="false">Referrals</button>
+          </div>
+          <small class="preset-note">Starting points only. Swap in your own numbers from your CRM as soon as you have them.</small>
+          <div class="field">
+            <label for="contact">Leads you actually talk to</label>
+            <div class="affix suffix"><input id="contact" type="number" inputmode="decimal" min="1" max="100" step="5" value="40"><span>%</span></div>
+          </div>
+          <div class="field">
+            <label for="appt">Conversations that book an appointment</label>
+            <div class="affix suffix"><input id="appt" type="number" inputmode="decimal" min="1" max="100" step="5" value="25"><span>%</span></div>
+          </div>
+          <div class="field">
+            <label for="close">Appointments that close</label>
+            <div class="affix suffix"><input id="close" type="number" inputmode="decimal" min="1" max="100" step="5" value="25"><span>%</span></div>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="calc-results" aria-live="polite">
+        <div class="result-head">
+          <span class="label">Your numbers</span>
+          <p class="headline">To take home <b id="r-goal">$25,000</b> a month, you need <b id="r-closings">30</b> closings a year.</p>
+          <p class="error" id="calc-error" hidden></p>
+        </div>
+
+        <dl class="money">
+          <div><dt>Income needed per year</dt><dd id="r-annual">$300,000</dd></div>
+          <div><dt>You keep per closing</dt><dd id="r-per">$10,020</dd></div>
+          <div><dt>Sellers / buyers</dt><dd id="r-mix">15 / 15</dd></div>
+          <div><dt>Leads per closing</dt><dd id="r-lpc">40</dd></div>
+        </dl>
+
+        <div class="funnel-table">
+          <table>
+            <thead><tr><th scope="col"></th><th scope="col">Per year</th><th scope="col">Per month</th><th scope="col">Per week</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">New leads</th><td id="y-leads"></td><td id="m-leads"></td><td id="w-leads"></td></tr>
+              <tr><th scope="row">Conversations</th><td id="y-conv"></td><td id="m-conv"></td><td id="w-conv"></td></tr>
+              <tr><th scope="row">Appointments</th><td id="y-appt"></td><td id="m-appt"></td><td id="w-appt"></td></tr>
+              <tr class="total"><th scope="row">Closings</th><td id="y-close"></td><td id="m-close"></td><td id="w-close"></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="leak" id="leak">
+          <span class="label">Biggest lever</span>
+          <p id="leak-text"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools-band">
+    <div class="wrap narrow article">
+      <h2>How the math works</h2>
+      <ol class="mathsteps">
+        <li><b>Income needed.</b> Your monthly goal × 12. If you enter business expenses, the calculator grosses that up so you still take home your goal.</li>
+        <li><b>What you keep per closing.</b> Sale price × your commission × your split.</li>
+        <li><b>Closings.</b> Income needed ÷ what you keep per closing, rounded up.</li>
+        <li><b>Leads.</b> Each closing needs 1 ÷ (talk rate × booking rate × close rate) leads. Raise any of the three and the lead count drops.</li>
+      </ol>
+      <p>Most agents try to fix a lead problem by buying more leads. Usually the cheaper fix is talking to more of the leads you already have. That's what the <a href="/playbooks/missed-call-text-back/">missed-call text-back playbook</a> does.</p>
+
+      <h2>Get one lead system every Sunday</h2>
+      <p>Each Sunday Build is one playbook that moves one of these numbers, with the steps, tools, and how long it takes.</p>
+      <div class="signup">
+          <div class="label accent">Sunday Build</div>
+          <h2>Hit your number with one system a week.</h2>
+          <p>A single playbook, the tools it needs, and how long it takes. Read it Sunday, build it Monday.</p>
+          <div class="embed"><iframe src="https://api.leadconnectorhq.com/widget/form/XEtgKsr8KvdGn4hiLSvY" style="width:100%;height:150px;border:none;border-radius:8px" id="inline-XEtgKsr8KvdGn4hiLSvY" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="LGD - Newsletter" data-height="150" data-layout-iframe-id="inline-XEtgKsr8KvdGn4hiLSvY" data-form-id="XEtgKsr8KvdGn4hiLSvY" title="LGD - Newsletter"></iframe></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><strong style="color:var(--ink)">Lead Gen Dad</strong><br>Lead systems for busy people.</div>
+      <ul><li><a href="/">Home</a></li><li><a href="/playbooks/">Playbooks</a></li><li><a href="/tools/">Tools</a></li><li><a href="/contact/">Contact</a></li></ul>
+    </div>
+    <p class="disclose">Disclosure: some links on this site are affiliate links. If you buy through them, I may earn a commission at no extra cost to you. © 2026 Lead Gen Dad.</p>
+  </div>
+</footer>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<script src="/assets/site.js"></script>
+<script src="/assets/calculator.js"></script>
+</body>
+</html>
